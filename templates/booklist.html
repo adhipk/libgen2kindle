@@ -1,0 +1,17 @@
+{%for book in books%}
+<tr>
+    <td>{{book.Title}}</td>
+    <td>{{book.Author}}</td>
+    <td>
+        <button
+            class="btn btn-primary"
+            hx-post="/send2kindle"
+            hx-vals='{"title":{{book.Title | tojson | safe}}, "mirror":{{book.Mirror_1 | tojson | safe}}}'
+            hx-target="this"
+            hx-swap="none"
+        >
+            Send to Kindle
+        </button>
+    </td>
+</tr>
+{%endfor%}
