@@ -21,10 +21,10 @@ def sendBooktoKindle():
 	title = request.form.get("title",'',type=str)
 	app.logger.info(f"{mirror},{title}")
 	if not mirror:
-		return jsonify({"error":"Missing mirror Link"}),400
+		return render_template('toast.html',toast={"status":"fail","error":"Missing mirror Link"}),400
 	result = send2kindle(mirror,title)
 	if result is False:
-		return jsonify({"error":"Error sending title to kindle"}),400
-	return jsonify({'status': 'success', 'message': f'Book "{title}" sent to Kindle'})
+		return render_template('toast.html',toast={"status":"fail","error":"Error sending title to kindle"}),400
+	return render_template('toast.html',toast={'status': 'success', 'message': f'Book "{title}" sent to Kindle'})
 if __name__ == '__main__':
     app.run(debug=True)

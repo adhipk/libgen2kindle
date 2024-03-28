@@ -7,8 +7,8 @@
             class="btn btn-primary"
             hx-post="/send2kindle"
             hx-vals='{"title":{{book.Title | tojson | safe}}, "mirror":{{book.Mirror_1 | tojson | safe}}}'
-            hx-target="this"
-            hx-swap="none"
+            hx-swap="outerHTML swap:1s"
+            hx-target="#toast"
         >
             Send to Kindle
         </button>

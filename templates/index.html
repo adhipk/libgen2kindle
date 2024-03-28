@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Flask HTMX ALPINE App</title>
+        <title>Libgen to Kindle</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -13,6 +13,16 @@
         <style>
             body {
                 padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 10px;
             }
             table {
                 font-family: arial, sans-serif;
@@ -32,10 +42,38 @@
             tr:nth-child(even) {
                 background-color: #dddddd;
             }
+            .toast.htmx-added {
+                visibility: hidden; /* Initially hide the toast */
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: black;
+                color: white;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 50%;
+                bottom: 30px;
+                font-size: 17px;
+                opacity: 0;
+                transition:
+                    visibility 0s,
+                    opacity 0.5s linear;
+            }
+            .toast {
+                visibility: visible;
+                opacity: 1;
+            }
+            .error {
+                color: red;
+                background-color: #ff474c;
+            }
         </style>
     </head>
     <body>
         <h1>Libgen Search to Kindle</h1>
+
         <form
             hx-get="/getBooks"
             hx-swap="beforeend"
@@ -63,5 +101,6 @@
                 hx-swap="innerHtml swap:0.5s"
             ></tbody>
         </table>
+        <div id="toast" class="toast"></div>
     </body>
 </html>
