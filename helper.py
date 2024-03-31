@@ -17,8 +17,8 @@ receiver_email = os.getenv('RECEIVER_EMAIL','test@example.com')
 password = os.getenv('EMAIL_PASSWORD',"test_password")
 smtp_server = os.getenv('SMTP_SERVER',"GSMTP")
 smtp_port = int(os.getenv('SMTP_PORT',587))
-subject = os.getenv('EMAIL_SUBJECT',"Test subject")
-body = os.getenv('EMAIL_BODY',"Test Body")
+subject = os.getenv('EMAIL_SUBJECT',"")
+body = os.getenv('EMAIL_BODY',"")
 download_path = os.getenv("DOWNLOAD_PATH","")
 
 s = LibgenSearch()
@@ -26,11 +26,11 @@ extension = "epub"
 
 def searchTitle(titleName:str) -> list[dict[str,str]]:
 
-    title_filters = {'Extension':extension}
-    results = s.search_title_filtered(titleName,title_filters,exact_match=True)
-    print(results[0])
-    # print(s.resolve_download_links(results[0]))
-    return results
+	title_filters = {'Extension':extension}
+	results = s.search_title_filtered(titleName,title_filters)
+	results.extend(s.search_author_filtered(titleName,title_filters))
+	# print(results)
+	return results
 
 def generateDownloadLinks(title):
 	return s.resolve_download_links(title)
