@@ -21,12 +21,12 @@ receiver_email = os.environ.get('RECEIVER_EMAIL','test@example.com')
 password = os.environ.get('EMAIL_PASSWORD',"test_password")
 smtp_server = os.environ.get('SMTP_SERVER',"GSMTP")
 smtp_port = int(os.environ.get('SMTP_PORT',587))
-subject = os.environ.get('EMAIL_SUBJECT',"")
-body = os.environ.get('EMAIL_BODY',"")
-download_path = "/tmp"
+subject = ""
+body = ""
+
 
 s = LibgenSearch()
-extension = "epub"
+extension = os.environ.get('DEFAULT_EXT','epub')
 
 def searchTitle(titleName:str) -> list[dict[str,str]]:
 
