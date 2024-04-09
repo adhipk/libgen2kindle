@@ -1,8 +1,9 @@
 # libgen2kindle
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ----
 A python flask+HTMX app to search for books on [Libgen](libgen.is) and send them to your Kindle via email.
 Demo app at: [libgen2kindle.vercel.app](libgen2kindle.vercel.app), (This site is linked to my kindle, feel free to send me good books lol.)
-
 
 ## Requirements
 
@@ -33,3 +34,7 @@ Demo app at: [libgen2kindle.vercel.app](libgen2kindle.vercel.app), (This site is
 
 Sometimes Amazon complains about a problem uploading to kindle even if the file is readable. It doesn't give any details as to why the upload failed. This happens sometimes when you upload the file manually too, so if this happens try another link.
 
+
+### Credits
+
+ Shoutout to [harrison-broadbent](https://github.com/harrison-broadbent) for their [libgen-api.](https://github.com/harrison-broadbent)
