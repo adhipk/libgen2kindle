@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 app = Flask(__name__)
 load_dotenv()
-FLASK_ENV = os.getenv('FLASK_ENV',"dev")
+FLASK_ENV = os.environ.get('FLASK_ENV',"dev")
 @app.route('/')
 def index():
     # Render the index.html template on accessing the root endpoint

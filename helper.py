@@ -16,13 +16,13 @@ import requests
 load_dotenv()
 
 # Access variables from environment
-sender_email = os.getenv('SENDER_EMAIL',"testSender@example.com")
-receiver_email = os.getenv('RECEIVER_EMAIL','test@example.com')
-password = os.getenv('EMAIL_PASSWORD',"test_password")
-smtp_server = os.getenv('SMTP_SERVER',"GSMTP")
-smtp_port = int(os.getenv('SMTP_PORT',587))
-subject = os.getenv('EMAIL_SUBJECT',"")
-body = os.getenv('EMAIL_BODY',"")
+sender_email = os.environ.get('SENDER_EMAIL',"testSender@example.com")
+receiver_email = os.environ.get('RECEIVER_EMAIL','test@example.com')
+password = os.environ.get('EMAIL_PASSWORD',"test_password")
+smtp_server = os.environ.get('SMTP_SERVER',"GSMTP")
+smtp_port = int(os.environ.get('SMTP_PORT',587))
+subject = os.environ.get('EMAIL_SUBJECT',"")
+body = os.environ.get('EMAIL_BODY',"")
 download_path = "/tmp"
 
 s = LibgenSearch()
