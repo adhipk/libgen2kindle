@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ----
-A python flask+HTMX app to search for books on [Libgen](libgen.is) and send them to your Kindle via email.
+A python flask+HTMX app to search for books on [Libgen](https://libgen.is) and send them to your Kindle via email.
 Demo app at: [libgen2kindle.vercel.app](https://libgen2kindle.vercel.app), (This site is linked to my kindle, feel free to send me good books lol.)
 
 ## Requirements
