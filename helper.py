@@ -77,17 +77,9 @@ def sendEmail(attachment,title):
 def send2kindle(mirror:str,title:str):
 	try:
 		downloadLinks = generateDownloadLinks({"Mirror_1":mirror});
-
-
-		# download file to tmp
-		with tempfile.NamedTemporaryFile(prefix=title,suffix=f".{extension}") as tmp:
-			if downloadLinks:
-				r = requests.get(downloadLinks["GET"],{"downloadFormat":extension})
-				tmp.write(r.content)
-				# seek(0) to read
-				tmp.seek(0)
-				attachment = tmp.read()
-				sendEmail(attachment,f"{tmp.name.split('/')[-1]}")
+		if downloadLinks:
+			r = requests.get(downloadLinks["GET"],{"downloadFormat":extension},stream=True, headers={"Accept-Encoding": "deflate, gzip"})
+			sendEmail(r.content,f"{title}.{extension}")
 	except Exception as e:
 		print(e)
 		return False

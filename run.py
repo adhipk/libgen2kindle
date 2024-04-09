@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify, render_template
 from helper import searchTitle,send2kindle
+import os
+from dotenv import load_dotenv
 app = Flask(__name__)
-
+load_dotenv()
+FLASK_ENV = os.getenv('FLASK_ENV',"dev")
 @app.route('/')
 def index():
     # Render the index.html template on accessing the root endpoint
@@ -27,4 +30,4 @@ def sendBooktoKindle():
 		return render_template('toast.html',toast={"status":"fail","error":"Error sending title to kindle"}),400
 	return render_template('toast.html',toast={'status': 'success', 'message': f'Book "{title}" sent to Kindle'})
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(threaded = True, debug = FLASK_ENV=='dev')
