@@ -3,7 +3,7 @@
 
 ----
 A python flask+HTMX app to search for books on [Libgen](libgen.is) and send them to your Kindle via email.
-Demo app at: [libgen2kindle.vercel.app](libgen2kindle.vercel.app), (This site is linked to my kindle, feel free to send me good books lol.)
+Demo app at: [libgen2kindle.vercel.app](https://libgen2kindle.vercel.app), (This site is linked to my kindle, feel free to send me good books lol.)
 
 ## Requirements
 
